@@ -1,37 +1,22 @@
-/**
- * CLIENTES
- */
-
-const carrusel = document.querySelector(".carrusel-items");
-
-let maxScrollLeft = carrusel.scrollWidth - carrusel.clientWidth;
-let intervalo = null;
-let step = 1;
-const start = () => {
-  intervalo = setInterval(function () {
-    carrusel.scrollLeft = carrusel.scrollLeft + step;
-    if (carrusel.scrollLeft === maxScrollLeft) {
-      step = step * -1;
-    } else if (carrusel.scrollLeft === 0) {
-      step = step * -1;
+const lightbox = document.createElement('div')
+lightbox.id = 'lightbox'
+document.body.appendChild(lightbox)
+const images = document.querySelectorAll('.img-info img')
+images.forEach(image => {
+  image.addEventListener('click', e => {
+    lightbox.classList.add('active')
+    const img = document.createElement('img')
+    img.src = image.src
+    while (lightbox.firstChild) {
+      lightbox.removeChild(lightbox.firstChild)
     }
-  }, 10);
-};
-
-const stop = () => {
-  clearInterval(intervalo);
-};
-
-carrusel.addEventListener("mouseover", () => {
-  stop();
-});
-
-carrusel.addEventListener("mouseout", () => {
-  start();
-});
-
-start();
-
+    lightbox.appendChild(img)
+  })
+})
+lightbox.addEventListener('click', e => {
+  if (e.target !== e.currentTarget) return
+  lightbox.classList.remove('active')
+})
 
 
 
