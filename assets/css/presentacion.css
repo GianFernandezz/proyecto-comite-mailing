@@ -131,18 +131,21 @@
 .sanciones{
     /* background-color: red; */
     text-align: center;
-    padding: 30px 0px 30px 0px;
+    padding: 30px 60px 30px 60px;
 }
 
 
 
 /* VIDEO */
+/* .video{
+    background-color: red;
+} */
 
 .video-main iframe{
     display: block;
     margin: 2px auto;
-    width: 80%;
-    height: calc(.88125 * 80vw);
+    width: 75%;
+    height: calc(.88125 * 75vw);
     max-width: 1280px;
     max-height: 720px;
     min-width: 320px;
@@ -163,11 +166,20 @@
     }
 
     /* texto-Presentacion */
+    .sanciones{
+        padding: 30px 0px 30px 0px;
+    }
     .section-subtitle-presentacion{
         font-size: 23px;
         text-align: justify;
     }
     
+  }
+
+  @media (min-width:1200px){
+    .video .video-main iframe{
+        height: 600px;
+    }
   }
 
 
@@ -176,11 +188,13 @@
     margin: 20px;
 }
 
+
 .sombrear{
     background-color: #E9F930;
     font-family: 'Poppins';
     /* text-align: justify; */
 }
+
 
 
 /* IMG - INFO */
